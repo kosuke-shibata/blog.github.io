@@ -8,8 +8,13 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(Post $post)
+    //Postメソッドを使用するためにPostをかく
     {
-        return $post->get();
+        // return view('posts/index')->with(['posts' => $post->get()]);
+        
+        // return view('posts/index')->with(['posts' => $post->getByLimit()]);
+        
+        return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
     }
 }
 ?>
