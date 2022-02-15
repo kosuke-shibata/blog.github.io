@@ -28,7 +28,10 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);//ここで$post->get()としてしまうとせっかく$postで撮ったidの意味がなくなる
     }
     
-    
+    public function create(Post $post) 
+    {
+        return view('posts/create');
+    }
 }
 ?>
 
