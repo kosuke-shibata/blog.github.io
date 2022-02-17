@@ -18,6 +18,7 @@ class PostRequest extends FormRequest
         return [
             'post.title' => 'required|string|max:40',
             'post.body' => 'required|string|max:4000',
+            //キー名はHTML上Formのname属性。post[title]など入れ子になっている場合は.（ドット）で繋ぐ
         ];
     }
     
