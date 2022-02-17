@@ -24,7 +24,7 @@
             <div class="create_body">
                 <label for="body">本文</label>
                 <textarea name="post[body]" id="body" placeholder="今日も1日お疲れさまでした。"  value="{{ old('post.body') }}"></textarea>
-                <p class="title__error" style="color:red">{{ $errors->first('post.body') }}</p>
+                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <!--name="post[title]",name="post[body]"とすることで、サーバ側で扱う時、post => [ 'title' => 'aaaa', 'body' => 'bbbb']というような形で、postの配列に入れ子で扱うことができる-->
             

@@ -57,7 +57,7 @@ class PostController extends Controller
         return view('posts/edit')->with(['post' => $post]);//'post'はedit.blade.phpの$postのことである。これをedit()の引数の$postにいれている。
     }
     
-    public function update(Request $request, Post $post) {
+    public function update(PostRequest $request, Post $post) {
         $input_post = $request['post'];
         $post->fill($input_post)->save();
         return redirect('/posts/' . $post->id);
