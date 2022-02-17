@@ -1,4 +1,5 @@
 <?php
+//MVCモデルのMの部分
 
 namespace App;
 

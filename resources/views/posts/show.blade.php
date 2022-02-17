@@ -1,5 +1,7 @@
 
 <!DOCTYPE HTML>
+<!--MVCモデルのVの部分-->
+
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -22,5 +24,6 @@
         <div class="footer">
             <a href="/posts">戻る</a>
         </div>
+        <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
     </body>
 </html>

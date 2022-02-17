@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<!--MVCモデルのVの部分-->
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -19,7 +21,7 @@
             {{ $posts->links() }}
         </div>
         <div class="create">
-            [<a href='/posts/create'>create</a>]
+            [<a href='/posts/create'>作成</a>]
         </div>
     </body>
 </html>

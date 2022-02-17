@@ -1,4 +1,5 @@
 <?php
+//MVCのCの部分
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::get('/posts/{post}', 'PostController@show');
 Route::post('/posts', 'PostController@store');//create.blade.phpのformをPOSTで送っているため、::postの方の/posts/が送られる。
 
 Route::get('/posts/{post}/edit', 'PostController@edit');//{post} = $postのこと
+
+Route::put('/posts/{post}', 'PostController@update');

@@ -1,4 +1,5 @@
 <?php
+//MVCモデルのCの部分
 
 namespace App\Http\Controllers;
 
@@ -47,13 +48,19 @@ class PostController extends Controller
     {
         $input = $request['post'];
         //['post']の中はpost.titleとpost.body
-        //$requestのキー['postは、HTMLのFormタグ内で定義した各入力項目のname属性と一致する
+        //$requestのキー['post']は、HTMLのFormタグ内で定義した各入力項目のname属性と一致する
         $post->fill($input)->save();//$inputを全て保存
         return redirect('/posts/' . $post->id);// /posts/{post}をリダイレクト
     }
     
     public function edit(Post $post) {
         return view('posts/edit')->with(['post' => $post]);//'post'はedit.blade.phpの$postのことである。これをedit()の引数の$postにいれている。
+    }
+    
+    public function update(Request $request, Post $post) {
+        $input_post = $request['post'];
+        $post->fill($input_post)->save();
+        return redirect('/posts/' . $post->id);
     }
 }
 ?>

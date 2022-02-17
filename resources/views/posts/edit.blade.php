@@ -1,4 +1,6 @@
 <!DOCTYPE HTML>
+<!--MVCモデルのVの部分-->
+
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -12,14 +14,17 @@
         <h1 class="title">
             Blog Edit
         </h1>
-        <form action="/posts" method='post'>
+        <form action="/posts/{{ $post->id }}" method='post'>
             @csrf
-            <div>
+            @method('PUT')
+            <div class=edit_title>
                 <label for="title">タイトル名</label>
-                <input type="text" id="title" name="post[title]" placeholder="{{ $post->title }}" value="{{ old('post.title') }}" />
-            <div>
+                <input type="text" id="title" name="post[title]" placeholder="タイトル" value="{{ $post->title }}" />
+            </div>
+            <div class="edit_body">
                 <label for="body">本文</label>
-                <textarea name="post[body]" id="body" placeholder="{{ $post->body }}"  value="{{ old('post.body') }}"></textarea>
+                <textarea name="post[body]" id="body" placeholder="本文"> {{ $post->body }}</textarea>
+                <!--<textarea>はvalue属性に対応していない-->
             </div>
             <input type="submit" value="保存" />
             
