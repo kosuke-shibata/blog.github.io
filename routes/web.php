@@ -29,3 +29,5 @@ Route::post('/posts', 'PostController@store');//create.blade.phpのformをPOST�
 Route::get('/posts/{post}/edit', 'PostController@edit');//{post} = $postのこと
 
 Route::put('/posts/{post}', 'PostController@update');
+
+Route::delete('/posts/{post}', 'PostController@destory');
