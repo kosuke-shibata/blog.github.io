@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <!--MVCモデルのVの部分-->
+@extends('layouts.app')
 
+@section('content')
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -27,11 +29,19 @@
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
             <!--name="post[title]",name="post[body]"とすることで、サーバ側で扱う時、post => [ 'title' => 'aaaa', 'body' => 'bbbb']というような形で、postの配列に入れ子で扱うことができる-->
-            
+            <div class="select_category">
+                カテゴリー
+                <select name="post[category_id]" size="1">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <input type="submit" value="保存" />
         </form>
         <div class="footer">
-            <a href="/posts">戻る</a>
+            <a href="/">戻る</a>
         </div>
     </body>
 </html>
+@endsection

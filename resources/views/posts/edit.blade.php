@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <!--MVCモデルのVの部分-->
+@extends('layouts.app')
 
+@section('content')
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -32,7 +34,8 @@
             
         </form>
         <div class="footer">
-            <a href="/posts">戻る</a>
+            <a href="/">戻る</a>
         </div>
     </body>
 </html>
+@endsection

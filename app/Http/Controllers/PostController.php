@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
     public function index(Post $post)
-    //Postメソッドを使用するためにPostをかく
+    //Post.phpを使用するためにPostをかく
     {
         $posts = DB::table('posts')->get();
         // return view('posts/index')->with(['posts' => $post->get()]);
@@ -30,9 +31,9 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);//ここで$post->get()としてしまうとせっかく$postで撮ったidの意味がなくなる
     }
     
-    public function create(Post $post) 
+    public function create(Category $category) //Category.phpのモデルを使用するよという意味
     {
-        return view('posts/create');
+        return view('posts/create')->with(['categories' => $category->get()]);
     }
     
     // public function store(Request $request) {

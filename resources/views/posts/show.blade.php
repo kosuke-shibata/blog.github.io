@@ -1,7 +1,9 @@
 
 <!DOCTYPE HTML>
 <!--MVCモデルのVの部分-->
+@extends('layouts.app')
 
+@section('content')
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -22,8 +24,10 @@
             </div>
         </div>
         <div class="footer">
-            <a href="/posts">戻る</a>
+            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+            <a href="/">戻る</a>
         </div>
         <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集</a>]</p>
     </body>
 </html>
+@endsection

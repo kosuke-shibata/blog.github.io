@@ -15,7 +15,7 @@
 Route::get('/posts/create', 'PostController@create');
 
 
-Route::get('/posts', 'PostController@index');
+Route::get('/', 'PostController@index')->middleware('auth');
 
 
 Route::get('/posts/{post}', 'PostController@show');
@@ -29,3 +29,11 @@ Route::post('/posts', 'PostController@store');//create.blade.phpのformをPOST�
 Route::get('/posts/{post}/edit', 'PostController@edit');//{post} = $postのこと
 
 Route::put('/posts/{post}', 'PostController@update');
+
+Route::get('/categories/{category}', 'CategoryController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+

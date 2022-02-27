@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <!--MVCモデルのVの部分-->
 
-@extends('layouts.app')
-
-@section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
-        <!--<link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">-->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        {{Auth::user()->name}}
         <h1>Blog Name</h1>
         <div class='posts'>
             @foreach ($posts as $post)
@@ -30,4 +26,3 @@
         </div>
     </body>
 </html>
-@endsection

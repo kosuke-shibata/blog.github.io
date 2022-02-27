@@ -12,11 +12,16 @@ class Post extends Model
     //     // updated_atで降順に並べたあと、limitで件数制限をかける
     //     return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     // }
-    protected $fillable = ['title', 'body',];
+    protected $fillable = ['title', 'body','category_id'];
     
     public function getPaginateByLimit(int $limit_count)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+        return $this::with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
+    
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
     }
 }
